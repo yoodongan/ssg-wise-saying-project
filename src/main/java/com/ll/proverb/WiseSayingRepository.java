@@ -12,7 +12,7 @@ public class WiseSayingRepository {
         wiseSayingList = new ArrayList<>();
     }
 
-    public WiseSaying write(String content, String author) {
+    public WiseSaying add(String content, String author) {
         int id = ++wiseSayingId;
         WiseSaying wiseSaying = new WiseSaying(id, content, author);
         wiseSayingList.add(wiseSaying);

@@ -1,13 +1,11 @@
 package com.ll.proverb;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
 
     private Scanner sc;
-    WiseSayingService wiseSayingService;
+    private WiseSayingService wiseSayingService;
 
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
@@ -64,6 +62,7 @@ public class WiseSayingController {
         String author = sc.nextLine();
 
         wiseSayingService.modify(id, content, author);
+        System.out.printf("%d번 명언이 수정되었습니다!", id);
 
     }
 

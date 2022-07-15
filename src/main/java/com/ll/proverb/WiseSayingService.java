@@ -1,45 +1,32 @@
 package com.ll.proverb;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class WiseSayingService {
-    private int wiseSayingId;
-    List<WiseSaying> wiseSayingList;
+
+
+    private WiseSayingRepository wiseSayingRepository;
 
     public WiseSayingService() {
-        wiseSayingId = 0;
-        wiseSayingList = new ArrayList<>();
+
+        wiseSayingRepository = new WiseSayingRepository();
     }
     public WiseSaying write(String content, String author) {
-        int id = ++wiseSayingId;
-        WiseSaying wiseSaying = new WiseSaying(id, content, author);
-        wiseSayingList.add(wiseSaying);
-        return wiseSaying;
+        return wiseSayingRepository.write(content, author);
     }
     public void list() {
-        for (int i = wiseSayingList.size() - 1; i >= 0; i--) {
-            WiseSaying wiseSaying1 = wiseSayingList.get(i);
-            System.out.printf("%d / %s / %s\n", wiseSaying1.getId(), wiseSaying1.getContent(), wiseSaying1.getAuthor());
-        }
+        wiseSayingRepository.list();
     }
 
     public WiseSaying findById(int id){
-        for (WiseSaying wiseSaying : wiseSayingList) {
-            if (wiseSaying.getId() == id) {
-                return wiseSaying;
-            }
-        }
-        return null;
+        return  wiseSayingRepository.findById(id);
     }
 
     public void remove(WiseSaying wiseSaying) {
-        wiseSayingList.remove(wiseSaying);
+        wiseSayingRepository.remove(wiseSaying);
 
     }
     public void modify(int id, String content, String author) {
-        WiseSaying wiseSaying = findById(id);
-        wiseSaying.setContent(content);
-        wiseSaying.setAuthor(author);
+
+        wiseSayingRepository.modify(id, content, author);
     }
 }

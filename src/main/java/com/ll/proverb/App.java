@@ -54,6 +54,29 @@ public class App {
                     wiseSayingList.remove(wiseSaying1);
                     System.out.printf("%d번 명언이 삭제되었습니다!\n", id);
                     break;
+                case "수정" :
+                    int id_2 = rq.getIntParam("id", 0);
+                    if (id_2 == 0) {
+                        System.out.println("번호를 입력해주세요.");
+                        continue;
+                    }
+                    WiseSaying wiseSaying2 = findById(id_2);
+                    if (wiseSaying2 == null) {
+                        System.out.printf("%d번 명언은 존재하지 않습니다!\n", id_2);
+                        continue;
+                    }
+                    System.out.printf("명언(기존) : %s\n", wiseSaying2.getContent());
+                    System.out.print("명언 : ");
+                    String content_2 = sc.nextLine();
+
+                    System.out.printf("작가(기존) : %s\n", wiseSaying2.getAuthor());
+                    System.out.print("작가 : ");
+                    String author_2 = sc.nextLine();
+
+                    wiseSaying2.setContent(content_2);
+                    wiseSaying2.setAuthor(author_2);
+
+                    break;
                 case "종료" :
                     break outer;
             }

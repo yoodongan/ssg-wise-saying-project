@@ -45,9 +45,18 @@ public class WiseSayingTableTest {
         wiseSayingTable.save("진짜 문제는 사람들의 마음이다. 그것은 절대로 물리학이나 윤리학의 문제가 아니다", "아인슈타인");
 
         assertTrue(new File("test_data/wise_saying/%d.json".formatted(id)).exists());
+    }
 
+    @Test
+    public void 조회() {  // 객체 조회 기능 테스트.
+        WiseSaying wiseSaying = wiseSayingTable.findById(1);
+        assertEquals(1, wiseSaying.getId());
+        assertEquals("진짜 문제는 사람들의 마음이다. 그것은 절대로 물리학이나 윤리학의 문제가 아니다", wiseSaying.getContent());
+        assertEquals("아인슈타인", wiseSaying.getAuthor());
 
     }
+
+
 
 
 

@@ -1,5 +1,8 @@
 package com.ll.proverb;
 
+import java.io.File;
+import java.util.Map;
+
 public class WiseSayingTable {
     private String baseDir;
 
@@ -31,4 +34,21 @@ public class WiseSayingTable {
         }
         return Integer.parseInt(id);
     }
+
+    public WiseSaying findById(int id) {
+        String path = "%s/wise_saying/%d.json".formatted(baseDir, id);
+
+        if (new File(path).exists() == false) {
+            return null;
+        }
+        Map<String, Object> map = Util.json.jsonToMapFromFile(path);
+
+        if (map == null) {
+            return null;
+        }
+        return new WiseSaying((int) map.get("id"), (String) map.get("content"), (String) map.get("author"));
+    }
+
+
+
 }

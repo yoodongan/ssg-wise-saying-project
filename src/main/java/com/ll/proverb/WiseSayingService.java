@@ -3,11 +3,9 @@ package com.ll.proverb;
 
 public class WiseSayingService {
 
-
     private WiseSayingRepository wiseSayingRepository;
 
     public WiseSayingService() {
-
         wiseSayingRepository = new WiseSayingRepository();
     }
     public WiseSaying write(String content, String author) {
@@ -26,7 +24,6 @@ public class WiseSayingService {
 
     }
     public void modify(int id, String content, String author) {
-
         wiseSayingRepository.modify(id, content, author);
     }
 }

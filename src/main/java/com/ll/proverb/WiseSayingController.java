@@ -62,7 +62,7 @@ public class WiseSayingController {
         String author = sc.nextLine();
 
         wiseSayingService.modify(id, content, author);
-        System.out.printf("%d번 명언이 수정되었습니다!", id);
+        System.out.printf("%d번 명언이 수정되었습니다!\n", id);
 
     }
 

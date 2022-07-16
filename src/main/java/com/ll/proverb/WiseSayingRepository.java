@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WiseSayingRepository {
     private int wiseSayingId;
-    List<WiseSaying> wiseSayingList;
+    private List<WiseSaying> wiseSayingList;
 
     public WiseSayingRepository() {
         wiseSayingId = 0;

@@ -43,4 +43,14 @@ public class WiseSaying {
                 ", author='" + author + '\'' +
                 '}';
     }
+
+    public String toJSON() {
+        return """
+                {
+                    "id" : %d,
+                    "content" : %s,
+                    "author" : %s
+                }
+                """.stripIndent().formatted(id, content, author);
+    }
 }

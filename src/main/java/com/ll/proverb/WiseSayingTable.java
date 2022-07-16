@@ -8,9 +8,10 @@ public class WiseSayingTable {
     }
     public void save(WiseSaying wiseSaying) {
         Util.file.mkdir("%s/wise_saying".formatted(baseDir));
-        String body = "내용";
+        String body = wiseSaying.toJSON();
         Util.file.saveToFile("%s/wise_saying/%d.json".formatted(baseDir, wiseSaying.getId()), body);
     }
+
     public void save(String content, String author) {
         int id = getLastId(1) + 1;  // save 할 때마다, id 1 증가.
         WiseSaying wiseSaying = new WiseSaying(id, content, author);

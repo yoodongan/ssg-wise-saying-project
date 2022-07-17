@@ -55,6 +55,14 @@ public class WiseSayingTableTest {
         assertEquals("아인슈타인", wiseSaying.getAuthor());
 
     }
+    @Test
+    public void 삭제() {  // 객체 삭제 기능 테스트.
+        wiseSayingTable.removeById(1);
+        WiseSaying wiseSaying = wiseSayingTable.findById(1);
+        assertEquals(null, wiseSaying);  // null 이면 테스트 통과.
+    }
+
+
 
 
 
